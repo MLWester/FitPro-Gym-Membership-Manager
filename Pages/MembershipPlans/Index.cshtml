@@ -1,0 +1,54 @@
+@page
+@model FitPro_Gym_Membership_Manager.Pages_MembershipPlans.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MembershipPlan[0].PlanName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembershipPlan[0].MonthlyFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembershipPlan[0].DurationInMonths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MembershipPlan[0].MaxMembers)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MembershipPlan) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlanName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthlyFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DurationInMonths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxMembers)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MembershipPlanID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MembershipPlanID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MembershipPlanID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

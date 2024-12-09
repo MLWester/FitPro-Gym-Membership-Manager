@@ -1,0 +1,51 @@
+@page
+@model FitPro_Gym_Membership_Manager.Pages_MembershipPlans.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>MembershipPlan</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MembershipPlan.MembershipPlanID" />
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="MembershipPlan.PlanName" class="control-label"></label>
+                <input asp-for="MembershipPlan.PlanName" class="form-control" />
+                <span asp-validation-for="MembershipPlan.PlanName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="MembershipPlan.MonthlyFee" class="control-label"></label>
+                <input asp-for="MembershipPlan.MonthlyFee" class="form-control" />
+                <span asp-validation-for="MembershipPlan.MonthlyFee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="MembershipPlan.DurationInMonths" class="control-label"></label>
+                <input asp-for="MembershipPlan.DurationInMonths" class="form-control" />
+                <span asp-validation-for="MembershipPlan.DurationInMonths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <span class="text-danger">*</span>
+                <label asp-for="MembershipPlan.MaxMembers" class="control-label"></label>
+                <input asp-for="MembershipPlan.MaxMembers" class="form-control" />
+                <span asp-validation-for="MembershipPlan.MaxMembers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
