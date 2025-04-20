@@ -1,12 +1,11 @@
 services:
   - type: web
     name: fitpro-gym-manager
-    env: dotnet
-    plan: free
-    region: oregon
     runtime: dotnet
-    buildCommand: dotnet publish -c Release -o out
-    startCommand: dotnet out/FitPro-Gym-Membership-Manager.dll
+    plan: free
+    buildCommand: dotnet build
+    startCommand: dotnet run
+    env: dotnet
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
@@ -14,8 +13,6 @@ services:
         fromDatabase:
           name: fitpro-db
           property: connectionString
-      - key: DOTNET_VERSION
-        value: 7.0.x
 
 databases:
   - name: fitpro-db
