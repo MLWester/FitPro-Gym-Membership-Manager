@@ -1,5 +1,5 @@
 @page
-@model FitPro_Gym_Membership_Manager.Pages_Members.DeleteModel
+@model FitPro_Gym_Membership_Manager.Pages.Members.DeleteModel
 
 @{
     ViewData["Title"] = "Delete";
@@ -52,7 +52,7 @@
             @Html.DisplayNameFor(model => model.Member.MembershipPlan)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Member.MembershipPlan.PlanName)
+            @(Model.Member.MembershipPlan?.PlanName ?? "No Plan")
         </dd>
     </dl>
     

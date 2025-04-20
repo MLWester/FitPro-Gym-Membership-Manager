@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FitProGymManager.Models;
 
-namespace FitPro_Gym_Membership_Manager.Pages_Members
+namespace FitPro_Gym_Membership_Manager.Pages.Members
 {
     public class DetailsModel : PageModel
     {
@@ -32,7 +32,6 @@ namespace FitPro_Gym_Membership_Manager.Pages_Members
             if (member is not null)
             {
                 Member = member;
-
                 return Page();
             }
 

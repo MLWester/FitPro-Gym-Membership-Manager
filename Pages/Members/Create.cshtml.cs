@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using FitProGymManager.Models;
 
-namespace FitPro_Gym_Membership_Manager.Pages_Members
+namespace FitPro_Gym_Membership_Manager.Pages.Members
 {
     public class CreateModel : PageModel
     {
@@ -20,7 +21,7 @@ namespace FitPro_Gym_Membership_Manager.Pages_Members
 
         public IActionResult OnGet()
         {
-        ViewData["MembershipPlanID"] = new SelectList(_context.MembershipPlans, "MembershipPlanID", "PlanName");
+            ViewData["MembershipPlanID"] = new SelectList(_context.MembershipPlans, "MembershipPlanID", "PlanName");
             return Page();
         }
 
@@ -32,9 +33,11 @@ namespace FitPro_Gym_Membership_Manager.Pages_Members
         {
             if (!ModelState.IsValid)
             {
+                ViewData["MembershipPlanID"] = new SelectList(_context.MembershipPlans, "MembershipPlanID", "PlanName");
                 return Page();
             }
 
+            Member.JoinDate = DateTime.Now;
             _context.Members.Add(Member);
             await _context.SaveChangesAsync();
 

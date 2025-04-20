@@ -1,5 +1,5 @@
 @page
-@model FitPro_Gym_Membership_Manager.Pages_Members.EditModel
+@model FitPro_Gym_Membership_Manager.Pages.Members.EditModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -66,4 +66,8 @@
 <div>
     <a asp-page="./Index">Back to List</a>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 

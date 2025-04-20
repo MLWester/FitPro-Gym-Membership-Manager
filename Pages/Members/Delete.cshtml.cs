@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FitProGymManager.Models;
 
-namespace FitPro_Gym_Membership_Manager.Pages_Members
+namespace FitPro_Gym_Membership_Manager.Pages.Members
 {
     public class DeleteModel : PageModel
     {
@@ -33,7 +33,6 @@ namespace FitPro_Gym_Membership_Manager.Pages_Members
             if (member is not null)
             {
                 Member = member;
-
                 return Page();
             }
 
@@ -48,6 +47,7 @@ namespace FitPro_Gym_Membership_Manager.Pages_Members
             }
 
             var member = await _context.Members.FindAsync(id);
+
             if (member != null)
             {
                 Member = member;

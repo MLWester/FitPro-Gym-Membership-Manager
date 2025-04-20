@@ -10,17 +10,17 @@ namespace FitProGymManager.Models
 
         [Required]
         [StringLength(50)]
-        public string FirstName { get; set; }
+        public required string FirstName { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string LastName { get; set; }
+        public required string LastName { get; set; }
 
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public required string Email { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [Required]
         public DateTime DateOfBirth { get; set; }
@@ -32,6 +32,6 @@ namespace FitProGymManager.Models
         public int MembershipPlanID { get; set; }
 
         [ForeignKey("MembershipPlanID")]
-        public MembershipPlan MembershipPlan { get; set; }
+        public MembershipPlan? MembershipPlan { get; set; }
     }
 }

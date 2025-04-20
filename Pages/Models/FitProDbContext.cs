@@ -9,20 +9,16 @@ namespace FitProGymManager.Models
         {
         }
 
-        public DbSet<Member> Members { get; set; }
-        public DbSet<MembershipPlan> MembershipPlans { get; set; }
+        public DbSet<Member> Members { get; set; } = null!;
+        public DbSet<MembershipPlan> MembershipPlans { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            
             modelBuilder.Entity<MembershipPlan>()
                 .HasIndex(p => p.PlanName)
                 .IsUnique();
-
-            
-            SeedData.Initialize(modelBuilder);
         }
     }
 }

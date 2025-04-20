@@ -1,18 +1,18 @@
 @page
-@model FitPro_Gym_Membership_Manager.Pages_Members.CreateModel
+@model FitPro_Gym_Membership_Manager.Pages.Members.CreateModel
 
-        @{
-        ViewData["Title"] = "Create";
-        }
-        
-        <h1>Create</h1>
-        
-    <h4>Member</h4>
-    <hr />
-    <div class="row">
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Member</h4>
+<hr />
+<div class="row">
     <div class="col-md-4">
-    <form method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <span class="text-danger">*</span>
                 <label asp-for="Member.FirstName" class="control-label"></label>
@@ -51,7 +51,8 @@
             <div class="form-group">
                 <span class="text-danger">*</span>
                 <label asp-for="Member.MembershipPlanID" class="control-label"></label>
-                <select asp-for="Member.MembershipPlanID" class ="form-control" asp-items="ViewBag.MembershipPlanID"></select>
+                <select asp-for="Member.MembershipPlanID" class="form-control" asp-items="ViewBag.MembershipPlanID"></select>
+                <span asp-validation-for="Member.MembershipPlanID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -61,6 +62,10 @@
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
 

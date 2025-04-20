@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FitProGymManager.Models;
 
-namespace FitPro_Gym_Membership_Manager.Pages_Members
+namespace FitPro_Gym_Membership_Manager.Pages.Members
 {
     public class EditModel : PageModel
     {
@@ -29,13 +29,13 @@ namespace FitPro_Gym_Membership_Manager.Pages_Members
                 return NotFound();
             }
 
-            var member =  await _context.Members.FirstOrDefaultAsync(m => m.MemberID == id);
+            var member = await _context.Members.FirstOrDefaultAsync(m => m.MemberID == id);
             if (member == null)
             {
                 return NotFound();
             }
             Member = member;
-           ViewData["MembershipPlanID"] = new SelectList(_context.MembershipPlans, "MembershipPlanID", "PlanName");
+            ViewData["MembershipPlanID"] = new SelectList(_context.MembershipPlans, "MembershipPlanID", "PlanName");
             return Page();
         }
 
